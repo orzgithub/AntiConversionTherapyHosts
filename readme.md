@@ -23,6 +23,6 @@ abprules.txt：用于ADBlock Plus等类似广告屏蔽工具的规则，对所�
 ## 使用方式
 hosts文件：<br>
 Windows系统的hosts位于``C:\Windows\System32\drivers\etc\hosts``，MacOS和Linux系统的hosts位于``/etc/hosts``，Android系统的hosts位于``/system/etc/hosts``。将生成的hosts文件中的内容复杂并粘贴于对应系统hosts文件尾部即可。不过由于权限问题，对于没有了解的人可能有些难度，在此不适合拿出大篇幅讲述权限问题的处理。具体可以搜索了解。<br>
-AdBlock Plus规则：
+AdBlock Plus规则：<br>
 可以在浏览器的插件商店中找到诸如AdBlock Plus、uBlock Origin、AdGuard等广告屏蔽插件，其中有设置自定义规则的地方可供输入，将生成的规则复制进去即可。或者，本仓库依托于GitHub提供一个规则订阅，地址为：[https://github.com/orzgithub/AntiConversionTherapyHosts/raw/master/abprules.txt](https://github.com/orzgithub/AntiConversionTherapyHosts/raw/master/abprules.txt)。考虑到国内网络环境，提供一个由[ghproxy](https://ghproxy.com)提供的代理加速链接，取决于代理的服务提供稳定性，该链接不保证持续可用。[https://ghproxy.com/https://raw.githubusercontent.com/orzgithub/AntiConversionTherapyHosts/master/abprules.txt](https://ghproxy.com/https://raw.githubusercontent.com/orzgithub/AntiConversionTherapyHosts/master/abprules.txt)。将订阅规则添加到规则订阅即可。<br>
 考虑到在手机上使用的不便性，或许需要有志愿者建设一个ADGuardHome服务器或类似的东西，将该服务器设定为设备使用的私人DNS服务器即可起到等同于HOSTS的功能。限于自己条件不足，仅能在此提起建议。<br>
