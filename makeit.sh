@@ -17,7 +17,7 @@ if [ $1 == "local" ]; then
 		exit 1
 	fi
 else
-	donloadnum = 0
+	donloadnum=0
 	while [ -f source${donloadnum}.txt ]
 	do
 		((donloadnum++))
@@ -39,20 +39,19 @@ fi
 ## 生成host文件
 # 该方式产生的host文件可以对对应站点进行屏蔽。但由于部分该类机构采用在微博宣传、与公共网站（也可能是作为机构伪装的普通公司）合作宣传等方式，若屏蔽会牵连其本身所在公共站点而影响使用和降低隐蔽性，故加入白名单，不作屏蔽。
 # 站点白名单。请使用"(站点1域名)|(站点2域名)|…|(站点n域名)"的格式编写。
-host_whitelist = "(weibo.com)|(jinan.dzwww.com)|(www.jjerw.com)|(www.qianxuew.com)"
+host_whitelist="(weibo.com)|(jinan.dzwww.com)|(www.jjerw.com)|(www.qianxuew.com)"
 echo "生成HOST中…"
-cat source.txt | awk -F";" '{ print $3}' | grep -oaE "http[s]?://[a-zA-Z0-9.-]+" | awk -F"/" '{ print $3}' | grep -vaE ${host_whitelist} | sed "s/^/127.0.0.1\t&/g" > hostfile.txt
+cat source.txt | awk -F"," '{ print $3}' | grep -oaE "http[s]?://[a-zA-Z0-9.-]+" | awk -F"/" '{ print $3}' | grep -vaE ${host_whitelist} | sed "s/^/127.0.0.1\t&/g" > hostfile.txt
 echo "HOST已保存为hostfile.txt。"
-host_whitelist = "(weibo.com)|(jinan.dzwww.com)|(www.jjerw.com)|(www.qianxuew.com)"
 # 该方式产生的host文件可以对对应站点进行屏蔽。对于借助其它网站建立自己宣传站点的机构也予以屏蔽，会造成其所在站点本身也被阻止而无法访问。微博等常用站点不进行屏蔽以减少痕迹。
 # 站点白名单。请使用"(站点1域名)|(站点2域名)|…|(站点n域名)"的格式编写。
 host_whitelist_strict="(weibo.com)"
 echo "生成更严格的HOST中…"
-cat source.txt | awk -F";" '{ print $3}' | grep -oaE "http[s]?://[a-zA-Z0-9.-]+" | awk -F"/" '{ print $3}' | grep -vaE ${host_whitelist_strict} | sed "s/^/127.0.0.1\t&/g" > hostfile_strict.txt
+cat source.txt | awk -F"," '{ print $3}' | grep -oaE "http[s]?://[a-zA-Z0-9.-]+" | awk -F"/" '{ print $3}' | grep -vaE ${host_whitelist_strict} | sed "s/^/127.0.0.1\t&/g" > hostfile_strict.txt
 echo "严格的HOST已保存为hostfile_strict.txt。"
 ## 生成ABP规则
 # 该方式产生的ABP规则可以对对应站点和页面进行屏蔽，可以针对特定的网站地址进行屏蔽。但该类规则需要搭配浏览器支持使用，比如使用AdGuard、ADBlock Plus插件的Chrome、Firefox、Safari，或者带有内建广告屏蔽规则支持的浏览器等。AdGuardHome建议使用HOST，其使用DNS拦截的机制，无法使用该规则中的页面拦截。
 # 建议和HOST一起使用，作为HOST的补充。uBlock Origin对于域名拦截有直接的提示且不会强制阻止。其余拦截程序也表现不佳，不能完全阻止对站点访问。
 echo "生成ABP规则中…"
-cat source.txt | awk -F";" '{ print $3}' | grep -oaE "http[s]?://[a-zA-Z0-9./-]+" | sed "s|^http://||g" | sed "s|^https://||g" | sed "s|/$||g" | sed "s/^/||/g" | sed "s/$/^/g" > abprules.txt
+cat source.txt | awk -F"," '{ print $3}' | grep -oaE "http[s]?://[a-zA-Z0-9./-]+" | sed "s|^http://||g" | sed "s|^https://||g" | sed "s|/$||g" | sed "s/^/||/g" | sed "s/$/^/g" > abprules.txt
 echo "规则已保存为abprules.txt。"

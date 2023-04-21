@@ -46,6 +46,7 @@
 ||www.shgxjy.com^
 ||www.cqyx999.com^
 ||www.hnqsnszjy.com^
+||www.ahxmb.com^
 ||www.hbyhgxy.com^
 ||www.yyshanyi.com^
 ||hnlfjy.com^
@@ -53,3 +54,8 @@
 ||www.777jwy.com^
 ||www.cdsmjy.com^
 ||jinan.dzwww.com/ztzh/hkxx^
+||hfhdedu.com^
+||www.zhczxx.com^
+||www.cuihuajy.com^
+||www.jielongtx.com^
+||www.zhihejiaoyu.com^

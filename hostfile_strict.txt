@@ -45,6 +45,7 @@
 127.0.0.1	www.shgxjy.com
 127.0.0.1	www.cqyx999.com
 127.0.0.1	www.hnqsnszjy.com
+127.0.0.1	www.ahxmb.com
 127.0.0.1	www.hbyhgxy.com
 127.0.0.1	www.yyshanyi.com
 127.0.0.1	hnlfjy.com
@@ -52,3 +53,8 @@
 127.0.0.1	www.777jwy.com
 127.0.0.1	www.cdsmjy.com
 127.0.0.1	jinan.dzwww.com
+127.0.0.1	hfhdedu.com
+127.0.0.1	www.zhczxx.com
+127.0.0.1	www.cuihuajy.com
+127.0.0.1	www.jielongtx.com
+127.0.0.1	www.zhihejiaoyu.com
