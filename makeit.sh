@@ -37,15 +37,19 @@ else
 	fi
 fi
 ## 生成host文件
+# 站点白名单。请使用"(站点1域名)|(站点2域名)|…|(站点n域名)"的格式编写。
+host_whitelist_basic="(www.jjerw.com)|(www.qianxuew.com)|(www.guanwenw.com)|(www.peixun123.com)|(www.100jiaoyu.com)"
+host_whitelist_medium="(jinan.dzwww.com)"
+host_whitelist_strict="(www.douyin.com)|(www.kuaishou.com)|(weibo.com)|(space.bilibili.com)"
 # 该方式产生的host文件可以对对应站点进行屏蔽。但由于部分该类机构采用在微博宣传、与公共网站（也可能是作为机构伪装的普通公司）合作宣传等方式，若屏蔽会牵连其本身所在公共站点而影响使用和降低隐蔽性，故加入白名单，不作屏蔽。
-# 站点白名单。请使用"(站点1域名)|(站点2域名)|…|(站点n域名)"的格式编写。
-host_whitelist="(weibo.com)|(jinan.dzwww.com)|(www.jjerw.com)|(www.qianxuew.com)"
 echo "生成HOST中…"
-cat source.txt | awk -F"," '{ print $3}' | grep -oaE "http[s]?://[a-zA-Z0-9.-]+" | awk -F"/" '{ print $3}' | grep -vaE ${host_whitelist} | sed "s/^/127.0.0.1\t&/g" > hostfile.txt
+cat source.txt | awk -F"," '{ print $3}' | grep -oaE "http[s]?://[a-zA-Z0-9.-]+" | awk -F"/" '{ print $3}' | grep -vaE ${host_whitelist_basic}"|"${host_whitelist_medium}"|"${host_whitelist_strict} | sed "s/^/127.0.0.1\t&/g" > hostfile.txt
 echo "HOST已保存为hostfile.txt。"
-# 该方式产生的host文件可以对对应站点进行屏蔽。对于借助其它网站建立自己宣传站点的机构也予以屏蔽，会造成其所在站点本身也被阻止而无法访问。微博等常用站点不进行屏蔽以减少痕迹。
-# 站点白名单。请使用"(站点1域名)|(站点2域名)|…|(站点n域名)"的格式编写。
-host_whitelist_strict="(weibo.com)"
+# 该方式产生的host文件可以对对应站点进行屏蔽。该级别屏蔽了几个有较高确信度由机构自己掌控，伪装成普通站点的网站。
+echo "生成中等屏蔽级别HOST中…"
+cat source.txt | awk -F"," '{ print $3}' | grep -oaE "http[s]?://[a-zA-Z0-9.-]+" | awk -F"/" '{ print $3}' | grep -vaE ${host_whitelist_medium}"|"${host_whitelist_strict} | sed "s/^/127.0.0.1\t&/g" > hostfile_medium.txt
+echo "HOST已保存为hostfile_medium.txt。"
+# 该方式产生的host文件可以对对应站点进行屏蔽。该级别除了上述内容外，还屏蔽了普及度有限但不太可能直接归属于机构（而是和机构合作在其内部建站）的站点。
 echo "生成更严格的HOST中…"
 cat source.txt | awk -F"," '{ print $3}' | grep -oaE "http[s]?://[a-zA-Z0-9.-]+" | awk -F"/" '{ print $3}' | grep -vaE ${host_whitelist_strict} | sed "s/^/127.0.0.1\t&/g" > hostfile_strict.txt
 echo "严格的HOST已保存为hostfile_strict.txt。"

@@ -52,7 +52,6 @@
 127.0.0.1	www.ncxljy.com
 127.0.0.1	www.777jwy.com
 127.0.0.1	www.cdsmjy.com
-127.0.0.1	jinan.dzwww.com
 127.0.0.1	hfhdedu.com
 127.0.0.1	www.zhczxx.com
 127.0.0.1	www.hnzhihua.com

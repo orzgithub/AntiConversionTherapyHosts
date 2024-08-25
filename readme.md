@@ -15,14 +15,15 @@
 ```
 
 ## 屏蔽列表的说明
-该脚本会产生三个文件，hostfile.txt、hostfile_strict.txt、abprules.txt。作用如下：<br>
-hostfile.txt：生成的一个hosts文件。这个版本只屏蔽了域名即其官网的类型，而部分机构将其官网设置在其它网站之内（例如济南大众网下藏着济南市宏开教育培训学校的官网，如果屏蔽机构官网则济南大众网也会一起屏蔽。），由此影响正常网站（虽然在底下还藏这种机构官网，想必这些主站也不会是无辜的“正常网站吧”…）的访问，为避免这样的影响未对此类网站作出屏蔽。<br>
-hostfile_strict.txt：一个更加严格版本的hosts文件，这个版本屏蔽了上述将官网设置在其它网站之内情况的域名，以达到更好的屏蔽效果。但有部分机构将宣传仅设置在微博等平台上，由于该类平台较为常用，屏蔽后较影响正常使用，不作处理。<br>
+该脚本会产生四个文件，hostfile.txt、hostfile_medium.txt、hostfile_strict.txt、abprules.txt。作用如下：<br>
+hostfile.txt：生成的一个hosts文件。这个版本只屏蔽了域名即其官网的类型，而部分机构将其官网设置在其它网站之内（例如济南大众网下藏着济南市宏开教育培训学校的官网，如果屏蔽机构官网则济南大众网也会一起屏蔽。还有数个看起来像是普通的教育机构黄页的网站。），由此影响正常网站（虽然在底下还藏这种机构官网，想必这些主站也不会是无辜的“正常网站吧”…）的访问，为避免这样的影响未对此类网站作出屏蔽。<br>
+hostfile_medium.txt：一个中等级别的hosts文件。这个版本将数个有较高确信度由机构直接掌控，以普通网站作为伪装的站点加入屏蔽范围内。该列表中新增的站点均有积极的客服引导，存在由客服引导进入隐藏的机构页面的风险（一部分甚至将该类机构在主页有直接链接引导进入，有更大风险）。<br>
+hostfile_strict.txt：一个更加严格版本的hosts文件，这个版本屏蔽了上述全部的将官网设置在其它网站之内情况的域名，以达到更好的屏蔽效果。但有部分机构将宣传仅设置在微博等平台上，由于该类平台较为常用，屏蔽后较影响正常使用，不作处理。<br>
 abprules.txt：用于ADBlock Plus等类似广告屏蔽工具的规则，对所有的站点进行针对性屏蔽，但需要浏览器支持，不能对设备全局生效。另外似乎广告屏蔽插件效果表现不佳，很多页面仍能加载出一小部分，表现出布局混乱，有时甚至完全不起作用。建议搭配hosts文件使用。<br>
 
 ## 使用方式
 hosts文件：<br>
 Windows系统的hosts位于``C:\Windows\System32\drivers\etc\hosts``，MacOS和Linux系统的hosts位于``/etc/hosts``，Android系统的hosts位于``/system/etc/hosts``。将生成的hosts文件中的内容复杂并粘贴于对应系统hosts文件尾部即可。不过由于权限问题，对于没有了解的人可能有些难度，在此不适合拿出大篇幅讲述权限问题的处理。具体可以搜索了解。<br>
 AdBlock Plus规则：<br>
-可以在浏览器的插件商店中找到诸如AdBlock Plus、uBlock Origin、AdGuard等广告屏蔽插件，其中有设置自定义规则的地方可供输入，将生成的规则复制进去即可。或者，本仓库依托于GitHub提供一个规则订阅，地址为：[https://github.com/orzgithub/AntiConversionTherapyHosts/raw/master/abprules.txt](https://github.com/orzgithub/AntiConversionTherapyHosts/raw/master/abprules.txt)。考虑到国内网络环境，提供一个由[ghproxy](https://ghproxy.com)提供的代理加速链接，取决于代理的服务提供稳定性，该链接不保证持续可用。[https://ghproxy.com/https://raw.githubusercontent.com/orzgithub/AntiConversionTherapyHosts/master/abprules.txt](https://ghproxy.com/https://raw.githubusercontent.com/orzgithub/AntiConversionTherapyHosts/master/abprules.txt)。将订阅规则添加到规则订阅即可。<br>
+可以在浏览器的插件商店中找到诸如AdBlock Plus、uBlock Origin、AdGuard等广告屏蔽插件，其中有设置自定义规则的地方可供输入，将生成的规则复制进去即可。或者，本仓库依托于GitHub提供一个规则订阅，地址为：[https://github.com/orzgithub/AntiConversionTherapyHosts/raw/master/abprules.txt](https://github.com/orzgithub/AntiConversionTherapyHosts/raw/master/abprules.txt)。考虑到国内网络环境，提供一个由[ghproxy](https://ghproxy.net)提供的代理加速链接，取决于代理的服务提供稳定性，该链接不保证持续可用。[https://ghproxy.net/https://raw.githubusercontent.com/orzgithub/AntiConversionTherapyHosts/master/abprules.txt](https://ghproxy.net/https://raw.githubusercontent.com/orzgithub/AntiConversionTherapyHosts/master/abprules.txt)。将订阅规则添加到规则订阅即可。<br>
 考虑到在手机上使用的不便性，或许需要有志愿者建设一个ADGuardHome服务器或类似的东西，将该服务器设定为设备使用的私人DNS服务器即可起到等同于HOSTS的功能。限于自己条件不足，仅能在此提起建议。<br>

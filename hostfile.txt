@@ -5,7 +5,6 @@
 127.0.0.1	www.ydf-edu.com
 127.0.0.1	www.cqtx110.com
 127.0.0.1	www.xiangyuezhongxue.com
-127.0.0.1	www.hnzhihua.com
 127.0.0.1	www.ttxsjyjd.com
 127.0.0.1	www.zhengxinedu.com
 127.0.0.1	www.999jwy.com
@@ -30,6 +29,7 @@
 127.0.0.1	www.qsn580.com
 127.0.0.1	hhzedu.net
 127.0.0.1	csccjy.com
+127.0.0.1	www.jielongtx.com
 127.0.0.1	cqsztxy.com
 127.0.0.1	www.kmhhz.com
 127.0.0.1	www.huinuote.com
@@ -52,6 +52,12 @@
 127.0.0.1	www.cdsmjy.com
 127.0.0.1	hfhdedu.com
 127.0.0.1	www.zhczxx.com
+127.0.0.1	www.hnzhihua.com
 127.0.0.1	www.cuihuajy.com
-127.0.0.1	www.jielongtx.com
 127.0.0.1	www.zhihejiaoyu.com
+127.0.0.1	www.nukoschool.com
+127.0.0.1	www.niukoujiaoyu.com
+127.0.0.1	www.sdnuko.com
+127.0.0.1	www.hnquande.com
+127.0.0.1	www.xinbashu.cn
+127.0.0.1	ble.cn7q.cn
